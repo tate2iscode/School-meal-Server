@@ -1,5 +1,7 @@
 package com.example.java_spring_server_gradle.Login;
 
+import com.example.java_spring_server_gradle.Coin.CoinData;
+import com.example.java_spring_server_gradle.Coin.CoinNames;
 import com.example.java_spring_server_gradle.Login.Classes.LoginClasses;
 import com.example.java_spring_server_gradle.Template;
 import org.springframework.stereotype.Controller;
@@ -10,13 +12,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 @Controller
 public class LoginMainController {
 
     MemberSaves Datas = new MemberSaves();
+    CoinData coinData = new CoinData();
     Template read = new Template();
+    CoinNames c = new CoinNames();
+    String[] coins = c.coins;
 
     @RequestMapping("/")
     @ResponseBody
@@ -43,8 +49,8 @@ public class LoginMainController {
         String id = content.getId();
         String pw = content.getPw();
         HashMap<String,String> Data = Datas.RequestMembers();
-        System.out.println(id);
-        System.out.println(pw);
+        //System.out.println(id);
+        //System.out.println(pw);
         if(Data.containsKey(id)) {
             return "redirect:";
         }
@@ -54,6 +60,9 @@ public class LoginMainController {
 
         session.setAttribute("id",id);
         session.setAttribute("pw",pw);
+        HashMap<String,String> CoinDatas = coinData.RequestDatas();
+        CoinDatas.put(id,"10000000");
+        coinData.SaveDatas(CoinDatas);
         return "redirect:";
     }
 
@@ -68,7 +77,7 @@ public class LoginMainController {
         //System.out.println(Data.get(id).getClass());
         //System.out.println(id.getClass());
         if(Objects.equals(pw, Data.get(id))) {
-            System.out.println(Data.get(id));
+            //System.out.println(Data.get(id));
             session.setAttribute("id",id);
             session.setAttribute("pw",pw);
             return "redirect:";
