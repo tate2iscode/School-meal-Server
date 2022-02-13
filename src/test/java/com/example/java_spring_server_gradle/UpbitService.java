@@ -1,7 +1,9 @@
 package com.example.java_spring_server_gradle;
 
-import org.springframework.stereotype.Service;
+import org.jsoup.Jsoup;
 
-@Service
 public class UpbitService {
+    public static void main(String[] args){
+        System.out.println("hi");
+    }
 }

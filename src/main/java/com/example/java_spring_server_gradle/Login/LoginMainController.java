@@ -60,9 +60,9 @@ public class LoginMainController {
 
         session.setAttribute("id",id);
         session.setAttribute("pw",pw);
-        HashMap<String,String> CoinDatas = coinData.RequestDatas();
-        CoinDatas.put(id,"10000000");
-        coinData.SaveDatas(CoinDatas);
+        //HashMap<String,String> CoinDatas = coinData.RequestDatas();
+        //CoinDatas.put(id,"10000000");
+        //coinData.SaveDatas(CoinDatas);
         return "redirect:";
     }
 

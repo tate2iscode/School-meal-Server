@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-public class MemberSaves {
+public class MemberSaves {  
     public static HashMap<String,String> MemberSaves;
 
     public HashMap<String,String> RequestMembers() {
