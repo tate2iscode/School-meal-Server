@@ -8,7 +8,6 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import java.io.IOException;
-import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -68,7 +67,7 @@ public class DongmyungMealRequest {
             JSONObject jsonObject = (JSONObject) obj;
             JSONArray code = (JSONArray) jsonObject.get("mealServiceDietInfo");
             if(code == null) {
-                return "급식 없음";
+                return "급식없음";
             }
             String mealService = code.get(1).toString();
 
@@ -111,7 +110,7 @@ public class DongmyungMealRequest {
             JSONObject jsonObject = (JSONObject) obj;
             JSONArray code = (JSONArray) jsonObject.get("mealServiceDietInfo");
             if(code == null) {
-                return "급식 없음";
+                return "급식없음";
             }
             String mealService = code.get(1).toString();
 
